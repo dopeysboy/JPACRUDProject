@@ -1,6 +1,5 @@
 package com.skilldistillery.dnd.entities;
 
-import javax.annotation.processing.Generated;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

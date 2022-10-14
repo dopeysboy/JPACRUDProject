@@ -8,7 +8,7 @@
     	</provider>
 
 		<!-- ENTITIES -->
-
+		<class>com.skilldistillery.dnd.entities.Campaign</class>
 		<!-- END ENTITIES -->
 
 		<properties>

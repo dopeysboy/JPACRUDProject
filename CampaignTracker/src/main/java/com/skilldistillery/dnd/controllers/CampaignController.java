@@ -38,4 +38,33 @@ public class CampaignController {
 	public String createdCampaign(HttpSession session) {
 		return "resultPage";
 	}
+	
+	@RequestMapping(path="manageCampaigns.do")
+	public String manageCampaigns(HttpSession session) {
+		session.setAttribute("campaigns", dao.getAllCampaigns());
+		return "manageCampaigns";
+	}
+	
+	@RequestMapping(path="deleteCamp.do")
+	public String deleteCampaign(HttpSession session, int id) {
+		session.setAttribute("removed", dao.destroyCampaign(id));
+		return "resultPage";
+	}
+	
+	@RequestMapping(path="updateCamp.do")
+	public String updateCampaign(HttpSession session, int id) {
+		session.setAttribute("camp", dao.getCampaignById(id));
+		return "updateCampaign";
+	}
+	
+	@RequestMapping(path="updateCampaign.do", method=RequestMethod.POST)
+	public String updateCampaign(HttpSession session, Campaign camp, int id) {
+		session.setAttribute("camp", dao.updateCampaign(camp, id));
+		return "redirect:updatedCampaign.do";
+	}
+	
+	@RequestMapping(path="updatedCampaign.do")
+	public String updatedCampaign(HttpSession session) {
+		return "resultPage";
+	}
 }

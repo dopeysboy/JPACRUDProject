@@ -9,7 +9,7 @@
 	<body>
 		<jsp:include page="nav.jsp"/>
 		<c:choose>
-			<c:when test="${not empty camp}">
+			<c:when test="${not empty camp or removed}">
 				<h1 class="success">Successfully updated</h1>
 			</c:when>
 			<c:otherwise>

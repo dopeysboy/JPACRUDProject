@@ -9,8 +9,8 @@
 			<tr>
 				<td><a href="index.do" class="btn btn-dark btn-block">Home</a></td>
 				<td><a href="createCampaign.do" class="btn btn-dark btn-block center">Create Campaign</a></td>
-				<td><a href="" class="btn btn-dark btn-block">Manage Campaigns</a></td>
-				<td><a href="" class="btn btn-primary btn-block">Login</a></td>
+				<td><a href="manageCampaigns.do" class="btn btn-dark btn-block">Manage Campaigns</a></td>
+				<td><a href="login.do" class="btn btn-primary btn-block">Login</a></td>
 			</tr>
 		</tbody>
 	</table>

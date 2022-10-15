@@ -22,3 +22,11 @@ nav{
 .success{
 	color:green;
 }
+
+.delete{
+	vertical-align: center;
+	text-align: center;
+	background-color: red;
+	color: white;
+	text-decoration: none;
+}

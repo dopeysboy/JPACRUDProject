@@ -8,10 +8,10 @@
 		<jsp:include page="header.jsp"/>
 	</head>
 	<body>
-		<h1>Hello world!</h1>
-		<c:forEach var="camp" items="${campaigns}">
-			<p><a href="getCampaign.do?id=${camp.id}">${camp.name}</a></p>
-			<hr>
-		</c:forEach>
+		<div class="container">
+			<h1>${campaign.name}</h1>
+			<p>${campaign.description}</p>
+			<img class="campaignPic" alt="Image Not Found" src="${campaign.imageUrl}">
+		</div>
 	</body>
 </html>

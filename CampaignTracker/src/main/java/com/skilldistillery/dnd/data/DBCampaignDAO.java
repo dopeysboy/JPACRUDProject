@@ -24,8 +24,10 @@ public class DBCampaignDAO implements CampaignDAO{
 
 	@Override
 	public boolean destroyCampaign(int id) {
-		// TODO Auto-generated method stub
-		return false;
+		Campaign camp = em.find(Campaign.class, id);
+		em.remove(camp);
+		em.flush();
+		return !em.contains(camp);
 	}
 
 	@Override

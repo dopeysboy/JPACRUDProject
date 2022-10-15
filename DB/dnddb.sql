@@ -7,15 +7,15 @@ CREATE TABLE campaign(
     name VARCHAR(100),
     description TEXT,
     setting VARCHAR(45),
-    image_url VARCHAR(1000),
+    image_url TEXT,
     PRIMARY KEY(id)
 );
 
-INSERT INTO campaign (name, description, setting)
-	VALUES('Curse Of Strahd','Adventurers must defeat the vampire Strahd in the land of Barovia', 'Swamp');
-INSERT INTO campaign (name, description, setting)
-	values('Descent Into Avernus', 'Adventurers must defeat the god of Hell, Asmodeus and prevent him from stealing the different cities in the world', 'Hell');
-    
+INSERT INTO campaign (name, description, setting, image_url)
+	VALUES('Curse Of Strahd','Adventurers must defeat the vampire Strahd in the land of Barovia', 'Swamp', 'https://www.strangeassembly.com/wp-content/uploads/2016/03/CurseofStrahd-artwork.jpg');
+INSERT INTO campaign (name, description, setting, image_url)
+	values('Descent Into Avernus', 'Adventurers must defeat the god of Hell, Asmodeus and prevent him from stealing the different cities in the world', 'Hell', 'https://www.tribality.com/wp-content/uploads/2019/05/descent-into-avernus-cover-750x375.jpg');    
+
 DROP USER IF EXISTS dnduser@localhost;
 CREATE USER IF NOT EXISTS dnduser@localhost IDENTIFIED BY 'dnduser';
 GRANT SELECT, UPDATE, INSERT, DELETE ON dnd.* TO dnduser@localhost;

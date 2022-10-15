@@ -9,7 +9,7 @@
 	<body>
 		<jsp:include page="nav.jsp"/>
 		<div class="container">
-			<c:forEach var="campaign" items="campaigns">
+			<c:forEach var="campaign" items="${campaigns}">
 				<h1>${campaign.name}</h1>
 				<p>${campaign.description}</p>
 				<p>Setting: ${campaign.setting}</p>

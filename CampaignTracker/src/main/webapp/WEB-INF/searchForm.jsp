@@ -8,7 +8,7 @@
 	<body>
 		<jsp:include page="nav.jsp"/>
 		<form action="searchById.do">
-				<label for="id">Search By</label>
+				<label for="id">Search By Id</label>
 				<input type="text" name="id" required>
 				<button type="submit">Search</button>
 		</form>
@@ -23,8 +23,8 @@
 				<button type="submit">Search</button>
 		</form>
 		<form action="searchByUser.do">
-				<label for="user">User search</label>
-				<input type="text" name="user" required>
+				<label for="username">User search</label>
+				<input type="text" name="username" required>
 				<button type="submit">Search</button>
 		</form>
 		<jsp:include page="footer.jsp"/>

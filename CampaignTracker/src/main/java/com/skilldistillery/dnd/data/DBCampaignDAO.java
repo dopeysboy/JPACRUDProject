@@ -1,8 +1,6 @@
 package com.skilldistillery.dnd.data;
 
 import java.util.List;
-
-import javax.persistence.EntityExistsException;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
@@ -52,27 +50,27 @@ public class DBCampaignDAO implements CampaignDAO{
 			em.persist(newCamp);
 			em.flush();
 			return newCamp;
-		} catch(EntityExistsException e) {
+		} catch(Exception e) {
 			return null;
 		}
 	}
 
 	@Override
 	public List<Campaign> getCampaignsByKeyword(String term) {
-		String query = "SELECT camp FROM Campaign camp WHERE camp.name LIKE %:term% OR camp.description LIKE %:term%";
-		return em.createQuery(query, Campaign.class).setParameter("term", term).getResultList();
+		String query = "SELECT camp FROM Campaign camp WHERE camp.name LIKE :term OR camp.description LIKE :term";
+		return em.createQuery(query, Campaign.class).setParameter("term", "%" + term + "%").getResultList();
 	}
 
 	@Override
 	public List<Campaign> getCampaignsBySetting(String setting) {
-		String query = "SELECT camp FROM Campaign camp WHERE camp.setting LIKE %:setting%";
-		return em.createQuery(query, Campaign.class).setParameter("setting", setting).getResultList();
+		String query = "SELECT camp FROM Campaign camp WHERE camp.setting LIKE :setting";
+		return em.createQuery(query, Campaign.class).setParameter("setting", "%" + setting + "%").getResultList();
 	}
 
 	@Override
-	public List<Campaign> getCampaignsByUser(String user) {
-		String query = "SELECT camp FROM Campaign camp WHERE camp.user LIKE %:user%";
-		return em.createQuery(query, Campaign.class).setParameter("user", user).getResultList();
+	public List<Campaign> getCampaignsByUser(String username) {
+		String query = "SELECT camp FROM Campaign camp WHERE camp.creator LIKE :username";
+		return em.createQuery(query, Campaign.class).setParameter("username", "%" + username + "%").getResultList();
 	}
 
 }

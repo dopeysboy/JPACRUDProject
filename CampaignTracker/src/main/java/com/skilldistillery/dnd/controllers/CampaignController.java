@@ -98,8 +98,8 @@ public class CampaignController {
 		return "campaign";
 	}
 	@RequestMapping(path="searchByUser.do")
-	public String searchByUser(HttpSession session, String user) {
-		session.setAttribute("campaigns", dao.getCampaignsByUser(user));
+	public String searchByUser(HttpSession session, String username) {
+		session.setAttribute("campaigns", dao.getCampaignsByUser(username));
 		return "campaign";
 	}
 }

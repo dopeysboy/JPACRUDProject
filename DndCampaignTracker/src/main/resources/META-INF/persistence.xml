@@ -9,6 +9,7 @@
 
 		<!-- ENTITIES -->
 		<class>com.skilldistillery.dnd.entities.Campaign</class>
+		<class>com.skilldistillery.dnd.entities.User</class>
 		<!-- END ENTITIES -->
 
 		<properties>

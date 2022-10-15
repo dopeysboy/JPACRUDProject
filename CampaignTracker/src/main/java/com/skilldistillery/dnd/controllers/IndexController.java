@@ -20,9 +20,4 @@ public class IndexController {
 		return "index";
 	}
 	
-	@RequestMapping(path= "getCampaign.do")
-	public String getCampaign(int id, HttpSession session) {
-		session.setAttribute("campaign", dao.getCampaignById(id));
-		return "campaign";
-	}
 }

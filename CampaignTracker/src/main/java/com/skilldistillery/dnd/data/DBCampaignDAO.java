@@ -2,6 +2,7 @@ package com.skilldistillery.dnd.data;
 
 import java.util.List;
 
+import javax.persistence.EntityExistsException;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
@@ -47,9 +48,13 @@ public class DBCampaignDAO implements CampaignDAO{
 
 	@Override
 	public Campaign createCampaign(Campaign newCamp) {
-		em.persist(newCamp);
-		em.flush();
-		return newCamp;
+		try {
+			em.persist(newCamp);
+			em.flush();
+			return newCamp;
+		} catch(EntityExistsException e) {
+			return null;
+		}
 	}
 
 }

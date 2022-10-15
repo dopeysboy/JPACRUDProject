@@ -19,6 +19,8 @@ public class Campaign {
 	@Column(name="image_url")
 	private String imageUrl;
 	
+	private String creator;
+	
 	public Campaign() {}
 
 	public int getId() {
@@ -61,11 +63,20 @@ public class Campaign {
 		this.imageUrl = imageUrl;
 	}
 
+	public String getCreator() {
+		return creator;
+	}
+
+	public void setCreator(String creator) {
+		this.creator = creator;
+	}
+
 	@Override
 	public String toString() {
 		return "Campaign [id=" + id + ", name=" + name + ", description=" + description + ", setting=" + setting
-				+ ", imageUrl=" + imageUrl + "]";
+				+ ", imageUrl=" + imageUrl + ", creator=" + creator + "]";
 	}
+
 	
 	
 }

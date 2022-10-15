@@ -8,14 +8,14 @@
 	</head>
 	<body>
 		<jsp:include page="nav.jsp"/>
-		<div class="container">
-			<h1>${campaign.name}</h1>
-			<p>${campaign.description}</p>
-			<p>Setting: ${campaign.setting}</p>
-			<p>Created By: ${campaign.creator}</p>
-			<img class="campaignPic" alt="Image Not Found" src="${campaign.imageUrl}">
-		</div>
-		
+		<c:choose>
+			<c:when test="${not empty camp}">
+				<h1 class="success">Successfully updated</h1>
+			</c:when>
+			<c:otherwise>
+				<h1 class="error">Something went wrong while updating your campaign</h1>
+			</c:otherwise>
+		</c:choose>
 		<jsp:include page="footer.jsp"/>
 	</body>
 </html>

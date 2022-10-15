@@ -1,0 +1,24 @@
+@font-face{
+	font-family: 'DndFont';
+	src: url("font/modesto-condensed-bold.ttf");	
+}
+
+body{
+	background-color: #36454F;
+	font-family: DndFont;
+	color: white;
+	font-size: 20px;
+}
+
+nav{
+	background: linear-gradient(.25turn, rgb(84, 14, 9), maroon);
+	text-align: center;
+}
+
+.error{
+	color:red;
+}
+
+.success{
+	color:green;
+}

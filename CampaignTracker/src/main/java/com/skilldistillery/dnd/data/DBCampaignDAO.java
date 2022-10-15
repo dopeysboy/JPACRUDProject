@@ -57,4 +57,22 @@ public class DBCampaignDAO implements CampaignDAO{
 		}
 	}
 
+	@Override
+	public List<Campaign> getCampaignsByKeyword(String term) {
+		String query = "SELECT camp FROM Campaign camp WHERE camp.name LIKE %:term% OR camp.description LIKE %:term%";
+		return em.createQuery(query, Campaign.class).setParameter("term", term).getResultList();
+	}
+
+	@Override
+	public List<Campaign> getCampaignsBySetting(String setting) {
+		String query = "SELECT camp FROM Campaign camp WHERE camp.setting LIKE %:setting%";
+		return em.createQuery(query, Campaign.class).setParameter("setting", setting).getResultList();
+	}
+
+	@Override
+	public List<Campaign> getCampaignsByUser(String user) {
+		String query = "SELECT camp FROM Campaign camp WHERE camp.user LIKE %:user%";
+		return em.createQuery(query, Campaign.class).setParameter("user", user).getResultList();
+	}
+
 }

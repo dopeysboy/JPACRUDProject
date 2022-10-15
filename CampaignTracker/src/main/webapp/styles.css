@@ -15,6 +15,17 @@ nav{
 	text-align: center;
 }
 
+label{
+	width: 150px;
+	display: inline-block;
+}
+
+input{
+	
+	margin-bottom: 10px;
+	width: 400px;
+}
+
 .error{
 	color:red;
 }

@@ -9,11 +9,17 @@
 	<body>
 		<jsp:include page="nav.jsp"/>
 		<div class="container">
-			<h1>${campaign.name}</h1>
-			<p>${campaign.description}</p>
-			<p>Setting: ${campaign.setting}</p>
-			<p>Created By: ${campaign.creator}</p>
-			<img class="campaignPic" alt="Image Not Found" src="${campaign.imageUrl}">
+			<c:forEach var="campaign" items="campaigns">
+				<h1>${campaign.name}</h1>
+				<p>${campaign.description}</p>
+				<p>Setting: ${campaign.setting}</p>
+				<p>Created By: ${campaign.creator}</p>
+				<img class="campaignPic" alt="Image Not Found" src="${campaign.imageUrl}"><br>
+				
+				<a href="updateCamp.do?id=${campaign.id}" class="btn btn-dark">Update this campaign</a>
+				<a href="deleteCamp.do?id=${campaign.id}" class="btn btn-danger">Delete this campaign</a>
+				<hr>
+			</c:forEach>
 		</div>
 		
 		<jsp:include page="footer.jsp"/>

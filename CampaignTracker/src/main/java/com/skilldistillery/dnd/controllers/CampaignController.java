@@ -1,5 +1,8 @@
 package com.skilldistillery.dnd.controllers;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +21,11 @@ public class CampaignController {
 
 	@RequestMapping(path= "getCampaign.do")
 	public String getCampaign(int id, HttpSession session) {
-		session.setAttribute("campaign", dao.getCampaignById(id));
+		List<Campaign> campaigns = new ArrayList<>();
+		campaigns.add(dao.getCampaignById(id));
+		
+		session.setAttribute("campaigns", campaigns);
+		
 		return "campaign";
 	}
 
@@ -66,5 +73,33 @@ public class CampaignController {
 	@RequestMapping(path="updatedCampaign.do")
 	public String updatedCampaign(HttpSession session) {
 		return "resultPage";
+	}
+	
+	@RequestMapping(path="searchCampaign.do")
+	public String searchCampaign(HttpSession session) {
+		return "searchForm";
+	}
+	
+	@RequestMapping(path="searchById.do")
+	public String searchById(HttpSession session, int id) {
+		List<Campaign> campaigns = new ArrayList<>();
+		campaigns.add(dao.getCampaignById(id));
+		session.setAttribute("campaigns", campaigns);
+		return "campaign";
+	}
+	@RequestMapping(path="searchByKeyword.do")
+	public String searchByKeyword(HttpSession session, String keyword) {
+		session.setAttribute("campaigns", dao.getCampaignsByKeyword(keyword));
+		return "campaign";
+	}
+	@RequestMapping(path="searchBySetting.do")
+	public String searchBySetting(HttpSession session, String setting) {
+		session.setAttribute("campaigns", dao.getCampaignsBySetting(setting));
+		return "campaign";
+	}
+	@RequestMapping(path="searchByUser.do")
+	public String searchByUser(HttpSession session, String user) {
+		session.setAttribute("campaigns", dao.getCampaignsByUser(user));
+		return "campaign";
 	}
 }

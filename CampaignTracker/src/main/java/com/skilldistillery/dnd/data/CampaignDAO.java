@@ -14,4 +14,10 @@ public interface CampaignDAO {
 	Campaign updateCampaign(Campaign newCamp, int oldCampId);
 	
 	Campaign createCampaign(Campaign newCamp);
+	
+	List<Campaign> getCampaignsByKeyword(String term);
+	
+	List<Campaign> getCampaignsBySetting(String setting);
+	
+	List<Campaign> getCampaignsByUser(String user); 
 }

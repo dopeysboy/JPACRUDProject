@@ -48,4 +48,12 @@ public class DBUserDAO implements UserDAO{
 		return !em.contains(user);
 	}
 
+	@Override
+	public User updatePassword(User user, String password) {
+		User updated = em.find(User.class, user.getId());
+		updated.setPassword(password);
+		em.flush();
+		return updated;
+	}
+
 }

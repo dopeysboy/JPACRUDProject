@@ -16,8 +16,12 @@
 				<p>Created By: ${campaign.creator}</p>
 				<img class="campaignPic" alt="Image Not Found" src="${campaign.imageUrl}"><br>
 				
-				<a href="updateCamp.do?id=${campaign.id}" class="btn btn-dark">Update this campaign</a>
-				<a href="deleteCamp.do?id=${campaign.id}" class="btn btn-danger">Delete this campaign</a>
+				<c:choose>
+					<c:when test="${user.username == campaign.creator or user.username == 'admin'}">
+						<a href="updateCamp.do?id=${campaign.id}" class="btn btn-dark">Update this campaign</a>
+						<a href="deleteCamp.do?id=${campaign.id}" class="btn btn-danger">Delete this campaign</a>
+					</c:when>
+				</c:choose>
 				<hr>
 			</c:forEach>
 		</div>

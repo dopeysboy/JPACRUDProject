@@ -16,6 +16,7 @@
 						<td><a href="login.do" class="btn btn-primary btn-block">Login/Signup</a></td>
 					</c:when>
 					<c:otherwise>
+						<td><a href="profile.do" class="btn btn-dark btn-block">Account</a></td>
 						<td><a href="logout.do" class="btn btn-primary btn-block">Logout</a></td>
 					</c:otherwise>
 				</c:choose>

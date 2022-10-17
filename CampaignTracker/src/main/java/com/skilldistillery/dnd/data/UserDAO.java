@@ -8,4 +8,6 @@ public interface UserDAO {
 	User createUser(String username, String password);
 	
 	boolean destroyUser(int id);
+	
+	User updatePassword(User user, String password);
 }

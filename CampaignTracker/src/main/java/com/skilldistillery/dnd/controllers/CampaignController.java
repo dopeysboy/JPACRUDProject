@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.skilldistillery.dnd.data.CampaignDAO;
 import com.skilldistillery.dnd.entities.Campaign;
+import com.skilldistillery.dnd.entities.User;
 
 @Controller
 public class CampaignController {
@@ -48,7 +49,15 @@ public class CampaignController {
 	
 	@RequestMapping(path="manageCampaigns.do")
 	public String manageCampaigns(HttpSession session) {
-		session.setAttribute("campaigns", dao.getAllCampaigns());
+		User user = (User)session.getAttribute("user");
+		
+		if(user == null) {
+			return "manageCampaigns";
+		} else if(user.getUsername().equals("admin")) {
+			session.setAttribute("campaigns", dao.getAllCampaigns());
+		} else {
+			session.setAttribute("campaigns", dao.getCampaignsByUser(user.getUsername()));
+		}
 		return "manageCampaigns";
 	}
 	

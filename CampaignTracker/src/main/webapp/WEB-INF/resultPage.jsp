@@ -8,14 +8,16 @@
 	</head>
 	<body>
 		<jsp:include page="nav.jsp"/>
-		<c:choose>
-			<c:when test="${not empty camp or removed}">
-				<h1 class="success">Successfully updated</h1>
-			</c:when>
-			<c:otherwise>
-				<h1 class="error">Something went wrong while updating your campaign</h1>
-			</c:otherwise>
-		</c:choose>
+		<div class="container">
+			<c:choose>
+				<c:when test="${not empty camp or removed}">
+					<h1 class="success">Successfully updated</h1>
+				</c:when>
+				<c:otherwise>
+					<h1 class="error">Something went wrong while updating your campaign</h1>
+				</c:otherwise>
+			</c:choose>
+		</div>
 		<jsp:include page="footer.jsp"/>
 	</body>
 </html>

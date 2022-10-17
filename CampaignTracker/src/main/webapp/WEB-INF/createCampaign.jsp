@@ -7,10 +7,12 @@
 	</head>
 	<body>
 		<jsp:include page="nav.jsp"/>
-		<h1>Create A Campaign</h1>
-		<form action="createCampaign.do" method="POST">
-			<jsp:include page="campaignForm.jsp"/>
-		</form>
+		<div class="container">
+			<h1>Create A Campaign</h1>
+			<form action="createCampaign.do" method="POST">
+				<jsp:include page="campaignForm.jsp"/>
+			</form>
+		</div>
 		<jsp:include page="footer.jsp"/>
 	</body>
 </html>

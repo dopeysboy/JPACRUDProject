@@ -20,4 +20,8 @@ public class IndexController {
 		return "index";
 	}
 	
+	@RequestMapping(path="readme.do")
+	public String readme(HttpSession session) {
+		return "readme";
+	}
 }
